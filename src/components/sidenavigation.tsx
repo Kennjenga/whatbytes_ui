@@ -4,22 +4,22 @@ import React, { useState } from "react";
 import { Home, BookOpen, Briefcase, Menu, X } from "lucide-react";
 
 const SideNavigation = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isSideNavOpen, setIsSideNavOpen] = useState(false);
 
-  const toggleNav = () => setIsOpen(!isOpen);
+  const toggleNav = () => setIsSideNavOpen(!isSideNavOpen);
 
   return (
     <>
       {/* Mobile Menu Button - Only visible on small screens */}
       <button
         onClick={toggleNav}
-        className="md:hidden fixed top-3 right-20 z-16 p-2 rounded-md hover:bg-gray-100"
+        className="md:hidden fixed top-3 right-20 z-20 p-2 rounded-md hover:bg-gray-100"
       >
-        {isOpen ? <X size={24} /> : <Menu size={24} />}
+        {isSideNavOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
 
       {/* Overlay for mobile */}
-      {isOpen && (
+      {isSideNavOpen && (
         <div
           className="md:hidden fixed inset-0 bg-black bg-opacity-50 z-10"
           onClick={toggleNav}
@@ -28,8 +28,12 @@ const SideNavigation = () => {
 
       {/* Navigation Menu */}
       <nav
-        className={`fixed lg:static top-0 left-0 right-0 h-fit lg:h-screen w-full lg:w-64 bg-white border-r border-gray-200 p-4 pt-16 lg:pt-11 z-10
-          ${isOpen ? "translate-y-0" : "-translate-y-full lg:translate-y-0"}
+        className={`fixed lg:static top-0 left-0 right-0 h-fit lg:h-screen w-full lg:w-64 bg-white rounded-lg border-gray-200 p-4 pt-16 lg:pt-11 z-10
+          ${
+            isSideNavOpen
+              ? "translate-y-0"
+              : "-translate-y-full lg:translate-y-0"
+          }
           transition-transform duration-300 ease-in-out`}
       >
         {/* Navigation Links */}
