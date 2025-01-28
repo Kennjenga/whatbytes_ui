@@ -87,7 +87,7 @@ const SkillTestDashboard = () => {
           <div className="lg:col-span-3 space-y-6">
             {/* Header Card */}
             <div className="bg-white rounded-lg shadow p-6">
-              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-0">
                 <div className="flex items-center space-x-4">
                   <div className="p-2 rounded relative lg:h-14 h-10 aspect-square">
                     <Image
@@ -107,7 +107,7 @@ const SkillTestDashboard = () => {
                 </div>
                 <button
                   onClick={openModal}
-                  className="bg-blue-700 text-white px-4 py-2 rounded-md hover:bg-blue-800 transition-colors"
+                  className="bg-blue-700 text-white px-4 py-2 rounded-md hover:bg-blue-800 transition-colors self-end sm:self-auto"
                 >
                   Update
                 </button>

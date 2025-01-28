@@ -11,7 +11,7 @@ interface NavbarProps {
 
 const Navbar = ({ userPhoto, username = "Kenneth Njenga" }: NavbarProps) => {
   return (
-    <nav className="w-full bg-white border-b border-gray-200 px-4 py-3">
+    <nav className="w-full bg-white border-b border-gray-200 sticky top-0  md:relative px-4 py-3">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">

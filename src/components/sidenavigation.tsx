@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Home, BookOpen, Briefcase, Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const SideNavigation = () => {
   const [isSideNavOpen, setIsSideNavOpen] = useState(false);
@@ -13,9 +14,9 @@ const SideNavigation = () => {
       {/* Mobile Menu Button - Only visible on small screens */}
       <button
         onClick={toggleNav}
-        className="md:hidden fixed top-3 right-20 z-20 p-2 rounded-md hover:bg-gray-100"
+        className="md:hidden fixed top-4 right-20 z-20 p-2 rounded-md hover:bg-gray-100"
       >
-        {isSideNavOpen ? <X size={24} /> : <Menu size={24} />}
+        {!isSideNavOpen && <Menu size={24} />}
       </button>
 
       {/* Overlay for mobile */}
@@ -28,16 +29,37 @@ const SideNavigation = () => {
 
       {/* Navigation Menu */}
       <nav
-        className={`fixed lg:static top-0 left-0 right-0 h-fit lg:h-screen w-full lg:w-64 bg-white rounded-lg border-gray-200 p-4 pt-16 lg:pt-11 z-10
+        className={`fixed lg:static top-0 left-0 h-screen lg:h-screen w-64 bg-white shadow-lg lg:shadow-none border-r border-gray-200 z-10
           ${
             isSideNavOpen
-              ? "translate-y-0"
-              : "-translate-y-full lg:translate-y-0"
+              ? "translate-x-0"
+              : "-translate-x-full lg:translate-x-0"
           }
           transition-transform duration-300 ease-in-out`}
       >
+        {/* Mobile Header with Logo and Close Button */}
+        <div className="lg:hidden relative p-4 border-b border-gray-200">
+          <div className="text-xl font-bold flex items-center space-x-1">
+            <div className="flex items-center">
+              <Image
+                src="/whatbytes.avif"
+                alt="whatbytes logo"
+                width={50}
+                height={50}
+              />
+            </div>
+            <span className="text-2xl font-bold">WhatBytes</span>
+          </div>
+          <button
+            onClick={toggleNav}
+            className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition-colors"
+          >
+            <X size={24} />
+          </button>
+        </div>
+
         {/* Navigation Links */}
-        <div className="space-y-2">
+        <div className="space-y-2 p-4">
           <NavItem icon={<Home size={20} />} text="Dashboard" active={false} />
           <NavItem
             icon={<BookOpen size={20} />}
