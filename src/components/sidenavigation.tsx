@@ -42,7 +42,7 @@ const SideNavigation = () => {
           <div className="text-xl font-bold flex items-center space-x-1">
             <div className="flex items-center">
               <Image
-                src="/whatbytes.avif"
+                src="/whatbytes.png"
                 alt="whatbytes logo"
                 width={50}
                 height={50}
