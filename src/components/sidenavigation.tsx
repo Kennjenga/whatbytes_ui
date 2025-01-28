@@ -13,7 +13,7 @@ const SideNavigation = () => {
       {/* Mobile Menu Button - Only visible on small screens */}
       <button
         onClick={toggleNav}
-        className="md:hidden fixed top-3 right-20 z-50 p-2 rounded-md hover:bg-gray-100"
+        className="md:hidden fixed top-3 right-20 z-16 p-2 rounded-md hover:bg-gray-100"
       >
         {isOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
@@ -21,14 +21,14 @@ const SideNavigation = () => {
       {/* Overlay for mobile */}
       {isOpen && (
         <div
-          className="md:hidden fixed inset-0 bg-black bg-opacity-50 z-40"
+          className="md:hidden fixed inset-0 bg-black bg-opacity-50 z-10"
           onClick={toggleNav}
         />
       )}
 
       {/* Navigation Menu */}
       <nav
-        className={`fixed lg:static top-0 left-0 right-0 h-fit lg:h-screen w-full lg:w-64 bg-white rounded-lg border-gray-200 p-4 pt-16 lg:pt-11 z-40
+        className={`fixed lg:static top-0 left-0 right-0 h-fit lg:h-screen w-full lg:w-64 bg-white border-r border-gray-200 p-4 pt-16 lg:pt-11 z-10
           ${isOpen ? "translate-y-0" : "-translate-y-full lg:translate-y-0"}
           transition-transform duration-300 ease-in-out`}
       >
